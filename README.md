@@ -158,3 +158,4 @@ en_US [English](README.en_US.md)
 **通过这种方式，下位机代码有效地将串口接收到的上位机命令转换为电机的物理运动，实现了对步进电机精确控制的目的**👍
 
 
+**Copyright © 2024 孙佩东. All Rights Reserved.**
