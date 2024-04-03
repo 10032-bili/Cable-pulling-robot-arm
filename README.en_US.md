@@ -143,3 +143,6 @@ The code parses the commands received via serial port, calculates the required s
 - When the motor reaches the desired number of steps, stop stepping for that motor.
 
 **In this way, the lower computer code effectively converts commands received from the serial port of the upper computer into physical movements of the motors, achieving precise control of the stepper motors**👍
+
+
+**Copyright © 2024 孙佩东. All Rights Reserved.**
