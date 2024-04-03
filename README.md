@@ -62,7 +62,7 @@ en_US [English](README.en_US.md)
   
   ![motor_control部分图片](pic/motor_control.jpg "motor_control部分图片")
 
-  `preset_program`允许加载和执行预设的json文件电机运动程序。
+  `preset_program`允许加载和执行预设的JSON文件电机运动程序。
 
   
   ![preset_program部分图片](pic/preset_program.jpg "preset_program部分图片")
@@ -103,13 +103,13 @@ en_US [English](README.en_US.md)
 允许用户加载和执行存储在JSON文件中的预设电机运动程序（execute_program）。  
 
 
-程序按josn中的time参数，按时间顺序向串口发送组织好的串口命令。
+程序按JSON中的time参数，按时间顺序向串口发送组织好的串口命令。
 
 通过在新线程中异步执行预设程序，避免阻塞GUI的主线程。  
 
 ## 程序编辑和保存(program_editing模块):
 
-提供了一个简单的文本编辑器，以及一个滑块可视化json生成编辑器，允许用户手动输入json或通过滑块编辑电机运动指令，然后将其保存为JSON格式的可执行文件。
+提供了一个简单的文本编辑器，以及一个滑块可视化JSON生成编辑器，允许用户手动输入JSON或通过滑块编辑电机运动指令，然后将其保存为JSON格式的可执行文件。
 
 # 下位代码（llcc）
 
