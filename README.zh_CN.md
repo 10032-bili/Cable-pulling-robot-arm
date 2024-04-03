@@ -1,23 +1,73 @@
 # Cable-pulling-robot-arm
-A simple serial port cable-pulling robot arm control software based on Arduino and Python。
+A simple serial port cable-pulling robot arm control software based on Arduino and Python.🐍
+## LICENSE
+
+This this project is licensed under the **Apache License 2.0**
+
+See details in [LICENSE](LICENSE)
+
+## README.md
+
+zh_CN [简体中文](README.zh_CN.md)
+eh_US [English](README.en_US.md)
+
 # 项目介绍
 
-**本项目是一种拉线步进电机控制系统，包含上位机控制代码（ulcc）和下位机控制代码（dlcc）。**
+**本项目是一种拉线步进电机控制系统，包含上位机控制代码（ulcc）和下位机控制代码（dlcc）**
 
 
 **[Cable-pulling-robot-arm项目Github链接](https://github.com/10032-bili/Cable-pulling-robot-arm/ "https://github.com/10032-bili/Cable-pulling-robot-arm/")**
+## 代码库格式
+
+ ### llcc文件夹
+
+  
+  `llcc.ino`下位机代码（ino格式arduino代码）
+
+  ### ulcc文件夹
+
+  
+  `ulcc.py python`上位机代码
+  `ulcc.exe windows` 可执行文件上位机
+
+
+  ### pic文件夹
+
+  
+  项目相关图片
+
+  ### README
+
+  
+  介绍文档
+
+  ### LICENSE
+
+  
+  This this project is licensed under the **Apache License 2.0**！
+
+  
+  该项目遵循 **Apache License 2.0** 许可证！
+
+
 ## 项目介绍
 
 # 上位代码（ulcc）
   上位机控制代码由python实现了一个电机控制系统的图形用户界面（GUI），通过 tkinter 库在Python中构建。
   
   `motor_control`部分允许用户通过串口与下位机进行通信，执行基本的控制操作，比如旋转特定的轴，发送自定义的串口指令。
+
+  
   ![motor_control部分图片](pic/motor_control.jpg "motor_control部分图片")
 
   `preset_program`允许加载和执行预设的json文件电机运动程序。
+
+  
   ![preset_program部分图片](pic/preset_program.jpg "preset_program部分图片")
 
   `program_editing`提供了一个简单的文本编辑器，允许用户输入和编辑电机运动指令，然后将其保存为JSON格式的文件。  
+
+  
   ![program_editing部分图片](pic/program_editing.jpg "program_editing部分图片")
 
 ## 主要逻辑与结构解析
@@ -50,11 +100,14 @@ A simple serial port cable-pulling robot arm control software based on Arduino a
 
 允许用户加载和执行存储在JSON文件中的预设电机运动程序（execute_program）。  
 
+
+程序按josn中的time参数，按时间顺序向串口发送组织好的串口命令。
+
 通过在新线程中异步执行预设程序，避免阻塞GUI的主线程。  
 
 ## 程序编辑和保存(program_editing模块):
 
-提供了一个简单的文本编辑器，允许用户输入和编辑电机运动指令，然后将其保存为JSON格式的文件。
+提供了一个简单的文本编辑器，以及一个滑块可视化json生成编辑器，允许用户手动输入json或通过滑块编辑电机运动指令，然后将其保存为JSON格式的可执行文件。
 
 # 下位代码（llcc）
 
@@ -68,17 +121,18 @@ A simple serial port cable-pulling robot arm control software based on Arduino a
 1. **步数计算公式**:
    - 步进电机的旋转是通过控制步数来实现的。每一步对应一个固定的角度，称为步距角。
    - 对于一个给定的旋转角度，所需的步数可以通过下面的公式计算：
-     $$
-     \text{所需步数} = \frac{\text{旋转角度}}{\text{步距角}}
-     $$
+  
+     ![\text{所需步数} = \frac{\text{旋转角度}}{\text{步距角}}](pic/step.png "step公式图片")
+
+
    - 在代码中，步距角被假定为1.8度，这是很多步进电机的一个常见值。
 
 2. **速度控制逻辑**:
    - 电机的旋转速度通过控制两个连续步进之间的时间间隔来实现。时间间隔越短，电机旋转的速度越快。
    - 旋转速度（度/秒）可以转换为每步的时间间隔（微秒）：
-     $$
-     \text{每步时间间隔（微秒）} = \frac{1,000,000}{\text{速度（度/秒）}} \times \text{步距角}
-     $$
+   
+     ![\text{每步时间间隔（微秒）} = \frac{1,000,000}{\text{速度（度/秒）}} \times \text{步距角}](pic/speed.png "speed公式图片")
+     
    - 由于速度是以度/秒为单位给出的，因此需要将其转换为每步的时间间隔。这个间隔定义了电机步进的频率。
 
 3. **命令解析逻辑**:
@@ -99,4 +153,6 @@ A simple serial port cable-pulling robot arm control software based on Arduino a
 - 使用`micros()`函数和计算出的步进间隔控制电机步进，以实现平滑且精确的速度控制。
 - 当电机达到所需步数时，停止该电机的步进。
 
-**通过这种方式，下位机代码有效地将串口接收到的上位机命令转换为电机的物理运动，实现了对步进电机精确控制的目的**
+**通过这种方式，下位机代码有效地将串口接收到的上位机命令转换为电机的物理运动，实现了对步进电机精确控制的目的**👍
+
+
