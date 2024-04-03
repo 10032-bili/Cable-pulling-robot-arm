@@ -112,7 +112,7 @@ The code parses the commands received via serial port, calculates the required s
    - The rotation of the stepper motor is achieved by controlling the number of steps. Each step corresponds to a fixed angle, known as the step angle.
    - The required number of steps for a given rotation angle can be calculated by the following formula:
 
-     ![Step Calculation Formula](pic/step.png "Step Calculation Formula")
+     ![Step Calculation Formula](pic/stepen.png "Step Calculation Formula")
 
    - In the code, the step angle is assumed to be 1.8 degrees, which is a common value for many stepper motors.
 
@@ -120,7 +120,7 @@ The code parses the commands received via serial port, calculates the required s
    - The rotation speed of the motor is achieved by controlling the time interval between two consecutive steps. The shorter the time interval, the faster the motor rotates.
    - The rotation speed (degrees per second) can be converted to the time interval per step (microseconds) by the following formula:
 
-     ![Speed Control Formula](pic/speed.png "Speed Control Formula")
+     ![Speed Control Formula](pic/speeden.png "Speed Control Formula")
 
    - Since the speed is given in degrees per second, it needs to be converted to the time interval per step. This interval defines the frequency of motor stepping.
 
