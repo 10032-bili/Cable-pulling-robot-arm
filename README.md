@@ -60,17 +60,17 @@ en_US [English](README.en_US.md)
   `motor_control`部分允许用户通过串口与下位机进行通信，执行基本的控制操作，比如旋转特定的轴，发送自定义的串口指令。
 
   
-  ![motor_control部分图片](pic/motor_control.jpg "motor_control部分图片")
+  ![motor_control部分图片](pic/zhmotor_control.jpg "motor_control部分图片")
 
   `preset_program`允许加载和执行预设的JSON文件电机运动程序。
 
   
-  ![preset_program部分图片](pic/preset_program.jpg "preset_program部分图片")
+  ![preset_program部分图片](pic/zhpreset_program.jpg "preset_program部分图片")
 
   `program_editing`提供了一个简单的文本编辑器，允许用户输入和编辑电机运动指令，然后将其保存为JSON格式的文件。  
 
   
-  ![program_editing部分图片](pic/program_editing.jpg "program_editing部分图片")
+  ![program_editing部分图片](pic/zhprogram_editing.jpg "program_editing部分图片")
 
 ## 主要逻辑与结构解析
 类定义和初始化:  
