@@ -2,7 +2,7 @@
 A simple serial port cable-pulling robot arm control software based on Arduino and Python.🐍
 ## LICENSE
 
-This this project is licensed under the **Apache License 2.0**
+This this project is licensed under the **MIT License**
 
 See details in [LICENSE](LICENSE)
 
@@ -46,10 +46,10 @@ en_US [English](README.en_US.md)
   ### LICENSE
 
   
-  This this project is licensed under the **Apache License 2.0**！
+  This this project is licensed under the **MIT License**！
 
   
-  该项目遵循 **Apache License 2.0** 许可证！
+  该项目遵循 **MIT License** 许可证！
 
 
 ## 项目介绍
@@ -157,5 +157,5 @@ en_US [English](README.en_US.md)
 
 **通过这种方式，下位机代码有效地将串口接收到的上位机命令转换为电机的物理运动，实现了对步进电机精确控制的目的**👍
 
-
+**MIT LICENSE**
 **Copyright © 2024 孙佩东. All Rights Reserved.**
