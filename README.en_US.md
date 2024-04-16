@@ -3,7 +3,7 @@ A simple serial port cable-pulling robot arm control software based on Arduino a
 
 ## LICENSE
 
-This project is licensed under the **Apache License 2.0**
+This project is licensed under the **MIT License**
 
 See details in [LICENSE](LICENSE)
 
@@ -40,7 +40,7 @@ en_US [English](README.en_US.md)
 
 ### LICENSE
 
-This project is licensed under the **Apache License 2.0**!
+This project is licensed under the **MIT LICENSE**!
 
 
 
@@ -144,5 +144,5 @@ The code parses the commands received via serial port, calculates the required s
 
 **In this way, the lower computer code effectively converts commands received from the serial port of the upper computer into physical movements of the motors, achieving precise control of the stepper motors**👍
 
-
+**MIT LICENSE**
 **Copyright © 2024 孙佩东. All Rights Reserved.**
