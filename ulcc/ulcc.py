@@ -9,7 +9,7 @@ import time
 class MotorControlApp:
     def __init__(self, master):
         self.master = master
-        master.title('Motor Control system tool v1.0 developed by © 孙佩东 2024')
+        master.title('Motor Control system tool v1.1 developed by © 孙佩东 2024')
         # 管理程序执行的线程列表
         self.program_threads = []
         self.thread = None  # 初始化线程属性
@@ -70,7 +70,7 @@ class MotorControlApp:
         self.step_label = ttk.Label(frame, text="步进值:")
         self.step_label.grid(row=1, column=0)
         self.step_slider = ttk.Scale(frame, from_=1, to=1000, orient='horizontal', command=self.update_step_display)
-        self.step_slider.grid(row=1, column=1, columnspan=5)
+        self.step_slider.grid(row=1, column=1, columnspan=5,sticky=(tk.W, tk.E))
         self.step_value_display = ttk.Label(frame, text="1")
         self.step_value_display.grid(row=1, column=6)
 
@@ -106,9 +106,9 @@ class MotorControlApp:
         # 创建步进速度滑块和步进速度显示标签
         self.speed_label = ttk.Label(frame, text="步进速度:")
         self.speed_label.grid(row=2, column=0)
-        self.speed_slider = ttk.Scale(frame, from_=400, to=1000 , orient='horizontal', command=self.update_speed_display)
-        self.speed_slider.grid(row=2, column=1, columnspan=5)
-        self.speed_value_display = ttk.Label(frame, text="100")
+        self.speed_slider = ttk.Scale(frame, from_=200, to=900 , orient='horizontal', command=self.update_speed_display)
+        self.speed_slider.grid(row=2, column=1, columnspan=5,sticky=(tk.W, tk.E))
+        self.speed_value_display = ttk.Label(frame, text="200")
         self.speed_value_display.grid(row=2, column=6)
 
         # 版权信息标签
@@ -237,15 +237,15 @@ class MotorControlApp:
         # 时间、速度和角度的滑块
         self.time_scale = tk.Scale(frame, from_=0, to=120, orient=tk.HORIZONTAL, label="时间")
         self.time_scale.grid(row=6, column=0, columnspan=2, sticky="ew")
-        self.speed_scale = tk.Scale(frame, from_=100, to=1000, resolution=0.01, orient=tk.HORIZONTAL, label="速度")
-        self.speed_scale.grid(row=6, column=2, columnspan=2, sticky="ew")
-        self.angle_scale = tk.Scale(frame, from_=-90, to=90, orient=tk.HORIZONTAL, label="角度")
-        self.angle_scale.grid(row=7, column=0, columnspan=2, sticky="ew")
+        self.speed_scale = tk.Scale(frame, from_=200, to=900, resolution=0.01, orient=tk.HORIZONTAL, label="速度")
+        self.speed_scale.grid(row=7, column=0, columnspan=2, sticky="ew")
+        self.angle_scale = tk.Scale(frame, from_=0, to=90, orient=tk.HORIZONTAL, label="角度")
+        self.angle_scale.grid(row=8, column=0, columnspan=2, sticky="ew")
 
         # 左右双选按钮
         self.direction = tk.StringVar(value="+")
         self.toggle_button = ttk.Button(frame, text="+", command=self.toggle_direction)
-        self.toggle_button.grid(row=7, column=2)
+        self.toggle_button.grid(row=9, column=2)
 
         # 输出单行JSON到编辑界面的按钮
         self.add_line_button = ttk.Button(frame, text="添加指令", command=self.add_line_to_program)
@@ -255,7 +255,7 @@ class MotorControlApp:
         self.generate_program_button.grid(row=4, column=1, padx=10, pady=10)
         # 版权信息标签
         self.footer_label = ttk.Label(frame, text="Copyright © 2024 孙佩东. All Rights Reserved.", background="gray", foreground="white")
-        self.footer_label.grid(row=8, column=0, columnspan=8, sticky="ew", pady=(10, 0))
+        self.footer_label.grid(row=10, column=0, columnspan=8, sticky="ew", pady=(10, 0))
     def toggle_direction(self):
             current_value = self.direction.get()
             new_value = "-" if current_value == "+" else "+"
