@@ -1,3 +1,4 @@
+#更新日志 v1.1更新了README文档中的程序系统要求部分，ulcc程序优化了电机控制部分的滑条长度，程序编辑部分的角度逻辑优化。
 # Cable-pulling-robot-arm
 A simple serial port cable-pulling robot arm control software based on Arduino and Python.🐍
 ## LICENSE
@@ -14,7 +15,7 @@ zh_CN [简体中文](README.md)
 en_US [English](README.en_US.md)
 
 # 项目介绍
-
+**由 © 孙佩东 2024 开发**
 **本项目是一种拉线步进电机控制系统，包含上位机控制代码（ulcc）和下位机控制代码（dlcc）**
 
 
@@ -57,21 +58,49 @@ en_US [English](README.en_US.md)
 # 上位代码（ulcc）
   上位机控制代码由python实现了一个电机控制系统的图形用户界面（GUI），通过 tkinter 库在Python中构建。
   
-  `motor_control`部分允许用户通过串口与下位机进行通信，执行基本的控制操作，比如旋转特定的轴，发送自定义的串口指令。
 
+1. **电机控制**
+    - 选择和刷新可用的串口。
+    - 设置串行通信的波特率。
+    - 使用特定的步进值和速度控制步进电机。
+    - 通过串口发送自定义命令。
+    - 实时监控和记录串行通信数据。
+    - 选择并控制多达四个轴，提供正转和反转选项。
   
   ![motor_control部分图片](pic/zhmotor_control.jpg "motor_control部分图片")
+    
 
-  `preset_program`允许加载和执行预设的JSON文件电机运动程序。
+    
+2. **预设程序执行**
+    - 从JSON文件加载并执行电机控制程序。
+    - 显示程序执行日志。
+    - 在程序执行期间记录串行通信数据。
 
   
   ![preset_program部分图片](pic/zhpreset_program.jpg "preset_program部分图片")
 
-  `program_editing`提供了一个简单的文本编辑器，允许用户输入和编辑电机运动指令，然后将其保存为JSON格式的文件。  
-
+3. **程序编辑**
+    - 编辑和创建具有自定义指令的电机控制程序。
+    - 将程序保存为JSON文件以供稍后执行。
+    - 使用简单的时间、轴、角度和速度格式输入指令。
+    - 添加单个指令或生成完整的程序文件。
   
   ![program_editing部分图片](pic/zhprogram_editing.jpg "program_editing部分图片")
 
+## 系统要求
+
+- Python 3.x
+- 所需的Python包：
+  - `tkinter`
+  - `pyserial`
+
+## 安装
+
+1. 确保系统上安装了Python 3.x。
+2. 使用pip安装所需的包：
+    ```bash
+    pip install pyserial
+    ```
 ## 主要逻辑与结构解析
 类定义和初始化:  
 
@@ -156,6 +185,12 @@ en_US [English](README.en_US.md)
 - 当电机达到所需步数时，停止该电机的步进。
 
 **通过这种方式，下位机代码有效地将串口接收到的上位机命令转换为电机的物理运动，实现了对步进电机精确控制的目的**👍
+## 许可
+
+**版权所有 © 2024 孙佩东. 保留所有权利。**
+
+本软件按“原样”提供，不提供任何形式的明示或暗示的担保，包括但不限于适销性、特定用途适用性和不侵权的担保。在任何情况下，作者或版权所有者均不对因使用本软件或与本软件的使用或其他交易有关的任何索赔、损害或其他责任负责，无论是在合同诉讼、侵权诉讼或其他诉讼中。
 
 **MIT LICENSE**
+
 **Copyright © 2024 孙佩东. All Rights Reserved.**
